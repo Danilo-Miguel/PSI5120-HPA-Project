@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment  # Define o tipo de recurso como Deployment
+metadata:
+  name: nginx-deployment  # Nome do Deployment
+spec:
+  replicas: 2  # Número de réplicas (pods) desejadas
+  selector:
+    matchLabels:
+      app: nginx  # Rótulo usado para selecionar os pods que pertencem a este Deployment
+  template:
+    metadata:
+      labels:
+        app: nginx  # Rótulo aplicado aos pods gerados por este template
+    spec:
+      containers:
+      - name: nginx  # Nome do contêiner
+        image: nginx:latest  # Imagem do contêiner, no caso, a última versão do Nginx
+        ports:
+        - containerPort: 80  # Porta exposta pelo contêiner
+        resources:
+          requests:
+            cpu: "100m"  # Solicitação mínima de CPU (100 milicores)
+          limits:
+            cpu: "500m"  # Limite máximo de CPU (500 milicores)
