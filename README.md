@@ -18,7 +18,7 @@ This project demonstrates the deployment of an Nginx web server on a Kubernetes 
 - Atualizar a lista de pacotes
 sudo apt update
 
-- Instalar pacotes necessários
+- Instalar pacotes necessários </br>
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 
 - Adicionar a chave GPG oficial do Docker
