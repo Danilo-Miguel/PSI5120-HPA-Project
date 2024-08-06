@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler  # Define o tipo de recurso como HorizontalPodAutoscaler
+metadata:
+  name: nginx-hpa  # Nome do HorizontalPodAutoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment  # Tipo do recurso a ser escalonado, que é um Deployment
+    name: nginx-deployment  # Nome do Deployment a ser escalonado
+  minReplicas: 2  # Número mínimo de réplicas que devem estar sempre em execução
+  maxReplicas: 10  # Número máximo de réplicas permitidas
+  targetCPUUtilizationPercentage: 30  # Utilização de CPU alvo para autoescalonamento (em porcentagem)
