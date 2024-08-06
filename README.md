@@ -100,14 +100,15 @@ This project demonstrates the deployment of an Nginx web server on a Kubernetes 
 `
 ### 7. Teste de carga. Foram executados testes com 3 ferramentas diferentes.
 
-Testes com o Apache Benchmark  </br>
+Testes com o Apache Benchmark: </br>
 - Instalar o Apache Benchmark </br>
 `sudo apt install apache2-utils
 `
 - Executando o teste com Apache BenchMark. Explicando o comando abaixo: "ab" faz referência ao ferramenta, "-n" especifica o total de requisições, "-c", concorrência e URL faz referência a URL do serviço. </br>
 `ab -n 1000 -c 10 http://127.0.0.1:PORT/
 `
-Teste com o Siege </br>
+
+Testes com o Siege:</br>
 - Instalar o Siege </br>
 `sudo apt install siege
 `
