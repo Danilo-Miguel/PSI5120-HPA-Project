@@ -13,6 +13,8 @@ This project demonstrates the deployment of an Nginx web server on a Kubernetes 
 - ApacheBench
 - siege
 - WRK
+- Prometheus
+- Grafana
   
 ## Installation Steps
 
@@ -174,6 +176,8 @@ Instalar Prometheus e Grafana </br>
 - Criar dashboards para monitorar métricas do HPA </br>
   1. No Grafana, vá para Create -> Dashboard. </br>
   2. Adicione um painel (Add Panel). </br>
+  ![image](https://github.com/user-attachments/assets/7880840c-8bb4-4d07-abc2-97a1d1a54133) </br>
+
 
 - Para monitorar o número de réplicas(PODS), use a seguinte consulta: </br>
 `  kube_deployment_status_replicas{deployment="nginx-deployment"}
