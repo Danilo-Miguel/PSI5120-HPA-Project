@@ -136,4 +136,52 @@ Testes com o wrk:</br>
 - Executando teste com o wrk. Explicando o comando abaixo: "wrk " faz referência a ferramenta, "-c" numero de conexões, "-t" numero de threads, "-d" duração dos testes e URL faz referência a URL do serviço exposto. </br>
 `-wrk -t12 -c400 -d30s http://127.0.0.1:PORT/
 `
-  
+### 8. Visualização e representação gráfica </br>
+Instalar Prometheus e Grafana </br>
+- Instalar Helm
+`  curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+` 
+- Adicionar repositórios Helm para Prometheus e Grafana:</br>
+`  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+`</br> 
+`helm repo add grafana https://grafana.github.io/helm-charts
+`</br> 
+`helm repo update
+`</br>
+
+- Instalar o Prometheus </br>
+`helm install prometheus prometheus-community/prometheus --namespace monitoring --create-namespace
+`
+- Instalar o Grafana </br>
+`helm install grafana grafana/grafana --namespace monitoring
+`
+-Configurar Prometheus para monitorar métricas do Kubernetes</br>
+`kubectl get pods -n monitoring -l app=prometheus
+`
+- Configurar Grafana para visualizar métricas, o primeiro passo é obter a senha do administrador do Grafana </br>
+`  kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+`
+- Acessar o Grafana </br>
+`kubectl port-forward --namespace monitoring svc/grafana 3000:80
+`
+- Adicionar o datasource Prometheus no Grafana </br>
+  1. No painel do Grafana, vá para Configuration -> Data Sources. </br>
+  2. Clique em Add data source. </br>
+  3. Selecione Prometheus. </br>
+  4. Defina a URL como http://prometheus-server.monitoring.svc.cluster.local (ou a URL do serviço Prometheus). </br>
+  5. Clique em Save & Test. </br>
+
+- Criar dashboards para monitorar métricas do HPA </br>
+  1. No Grafana, vá para Create -> Dashboard. </br>
+  2. Adicione um painel (Add Panel). </br>
+
+- Para monitorar o número de réplicas(PODS), use a seguinte consulta: </br>
+`  kube_deployment_status_replicas{deployment="nginx-deployment"}
+`
+![image](https://github.com/user-attachments/assets/b6ecac98-2149-472a-9ee5-2029c9151d30) </br>
+
+- Para monitorar a utilização da CPU das réplicas, use a seguinte consulta: </br>
+`rate(container_cpu_usage_seconds_total{container="nginx", pod=~"nginx-deployment-.*"}[2m])
+`
+![image](https://github.com/user-attachments/assets/d05cff59-e0f6-49dc-8439-20a44aec9f67) </br>
+
