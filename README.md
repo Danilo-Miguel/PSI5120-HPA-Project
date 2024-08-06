@@ -15,15 +15,15 @@ This project demonstrates the deployment of an Nginx web server on a Kubernetes 
 
 ### 1. Instalar e configurar o docker
 
-- Atualizar a lista de pacotes
-sudo apt update
-
+- Atualizar a lista de pacotes </br>
+`sudo apt update
+`
 - Instalar pacotes necessários </br>
-`sudo apt install apt-transport-https ca-certificates curl software-properties-common`
-
+`sudo apt install apt-transport-https ca-certificates curl software-properties-common
+`
 - Adicionar a chave GPG oficial do Docker </br>
-`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
-
+`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+`
 - Adicionar repositório Docker </br>
 `echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 `
