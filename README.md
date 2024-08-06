@@ -10,7 +10,10 @@ This project demonstrates the deployment of an Nginx web server on a Kubernetes 
 - Docker
 - Kubectl
 - Minikube
-
+- ApacheBench
+- siege
+- WRK
+  
 ## Installation Steps
 
 ### 1. Instalar e configurar o docker
@@ -133,4 +136,4 @@ Testes com o wrk:</br>
 - Executando teste com o wrk. Explicando o comando abaixo: "wrk " faz referência a ferramenta, "-c" numero de conexões, "-t" numero de threads, "-d" duração dos testes e URL faz referência a URL do serviço exposto. </br>
 `-wrk -t12 -c400 -d30s http://127.0.0.1:PORT/
 `
-` 
+  
