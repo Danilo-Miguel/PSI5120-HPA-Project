@@ -115,3 +115,22 @@ Testes com o Siege:</br>
 - Executando teste com o Siege. Explicando o comando abaixo: "siege" faz referência a ferramenta, "-c" concorrência, "-t" duração do teste e URL faz referência a URL do serviço exposto. </br>
 `-c 10 -t 1m http://127.0.0.1:PORT/
 ` 
+
+Testes com o wrk:</br>
+- Instalar o wrk. Primeiro é necessário instalar algumas depências </br>
+`sudo apt install build-essential libssl-dev git
+`
+- Clonar o repositório wrk e compilar o wrk </br>
+`  git clone https://github.com/wg/wrk.git 
+` </br>
+`cd wrk
+`</br>
+`make
+`</br>
+`sudo cp wrk /usr/local/bin
+`</br>
+
+- Executando teste com o wrk. Explicando o comando abaixo: "wrk " faz referência a ferramenta, "-c" numero de conexões, "-t" numero de threads, "-d" duração dos testes e URL faz referência a URL do serviço exposto. </br>
+`-wrk -t12 -c400 -d30s http://127.0.0.1:PORT/
+`
+` 
