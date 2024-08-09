@@ -164,8 +164,8 @@ Instalar Prometheus e Grafana </br>
 `  kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 `
 - Acessar o Grafana </br>
-`kubectl port-forward --namespace monitoring svc/grafana 3000:80 </br>
-`
+`kubectl port-forward --namespace monitoring svc/grafana 3000:80 
+` </br>
 `Abra seu navegador e vá para http://localhost:3000. Faça login com o nome de usuário admin e a senha obtida anteriormente.
 `
 
