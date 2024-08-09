@@ -166,6 +166,9 @@ Instalar Prometheus e Grafana </br>
 - Acessar o Grafana </br>
 `kubectl port-forward --namespace monitoring svc/grafana 3000:80
 `
+`Abra seu navegador e vá para http://localhost:3000. Faça login com o nome de usuário admin e a senha obtida anteriormente.
+`
+
 - Adicionar o datasource Prometheus no Grafana </br>
   1. No painel do Grafana, vá para Configuration -> Data Sources. </br>
   2. Clique em Add data source. </br>
