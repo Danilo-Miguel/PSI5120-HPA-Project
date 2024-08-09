@@ -157,7 +157,8 @@ Instalar Prometheus e Grafana </br>
 - Instalar o Grafana </br>
 `helm install grafana grafana/grafana --namespace monitoring
 `</br>
--Configurar Prometheus para monitorar métricas do Kubernetes</br>
+
+- Configurar Prometheus para monitorar métricas do Kubernetes</br>
 `kubectl get pods -n monitoring -l app=prometheus
 `
 - Configurar Grafana para visualizar métricas, o primeiro passo é obter a senha do administrador do Grafana </br>
