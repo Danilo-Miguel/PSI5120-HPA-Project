@@ -9,4 +9,4 @@ spec:
     name: nginx-deployment  # Nome do Deployment a ser escalonado
   minReplicas: 2  # Número mínimo de réplicas que devem estar sempre em execução
   maxReplicas: 10  # Número máximo de réplicas permitidas
-  targetCPUUtilizationPercentage: 30  # Utilização de CPU alvo para autoescalonamento (em porcentagem)
+  targetCPUUtilizationPercentage: 50  # Utilização de CPU alvo para autoescalonamento (em porcentagem)
